@@ -1,4 +1,4 @@
-# OCI OKE Cluster 
+# OCI CIS OKE Cluster 
 
 To deploy a new OKE Cluster ( VCN-native pod networking for OKE CNI ) as a new Platform (on top of ONE-OE LZ), follow next steps:
 
