@@ -9,30 +9,30 @@ To deploy a new OKE Cluster ( VCN-native pod networking for OKE CNI ) as a new P
 2. Cloud shell will be open. Change the **KEYS values** for the respective **OCIDs** in oke_cluster/oke/oke.tf file 
 Example for deploy the Preprod OKE cluster:
  
-  * **compartment_id** = "\<CMP-LZP-PLATFORM-PREPROD-KEY>"
+  * **default_compartment_id** = "\<CMP-LZP-PLATFORM-PREPROD-KEY>"
 
   * **vcn_id**="\<VCN-PREPROD-KEY>"
-
   * **network_compartment_id** = "\<CMP-LZP-PP-NETWORK-KEY>"
 
-  * **subnets** = {
-  cp       = { id = "\<SN-PP-CP-KEY>" }
-  int_lb   = { id = "\<SN-PP-PRIV-LB-KEY>" }
-  workers  = { id = "\<SN-PP-WORKERS-KEY>" }
-  pods     = { id = "\<SN-PP-PODS-KEY>"}
-  }
+  *   **default_ssh_public_key_path** = "Upload your public key and add here the path"
 
-  * **nsgs** = {
-  cp       = { id = "\<NSG-PREPROD-CP-KEY>" }
-  int_lb   = { id = "\<NSG-PREPROD-PRIV-LB-KEY>" }
-  workers  = { id = "\<NSG-PREPROD-WORKERS-KEY>" }
-  pods     = { id = "\<NSG-PREPROD-PODS-KEY>" }
-  }
-
+  * **api_endpoint_nsg_ids**="\<NSG-PREPROD-CP-KEY>"
+  * **api_endpoint_subnet_id**="\<SN-PP-CP-KEY>"
+  * **services_subnet_id**="\<SN-PP-PRIV-LB-KEY>"  
+  * **workers_nsg_ids**= "\<NSG-PREPROD-WORKERS-KEY>"
+  * **workers_subnet_id** = "\<SN-PP-WORKERS-KEY>"
+  * **pods_subnet_id**= "\<SN-PP-PODS-KEY>"
+  * **pods_nsg_ids**= "\<NSG-PREPROD-PODS-KEY>"
+  
 > [!NOTE]
-> Make any additional changes needed to customize your cluster. If you have any questions, please refer to the documentation.
+> Make any additional changes needed to customize your cluster. If you have any questions, please refer to the [documentation](https://github.com/oci-landing-zones/terraform-oci-modules-workloads/tree/main/cis-oke).
 
 3. run **chmod +x init.sh**
 4. run **./init.sh -c compartment_ocid**
+
+> [!NOTE]
+>  To run the detroy operation:
+> * run **chmod +x destroy.sh**
+> * run **./destroy.sh -c compartment_ocid**
 
 
